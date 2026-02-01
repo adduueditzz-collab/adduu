@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Birthday Wish</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #ff758c, #ff7eb3);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-align: center;
+        }
+
+        .box {
+            background: rgba(255,255,255,0.2);
+            padding: 30px;
+            border-radius: 15px;
+            width: 320px;
+        }
+
+        input {
+            padding: 10px;
+            width: 90%;
+            border-radius: 10px;
+            border: none;
+            outline: none;
+            margin-bottom: 15px;
+            font-size: 16px;
+        }
+
+        button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 20px;
+            background: white;
+            color: #ff4b6e;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .error {
+            color: #ffdddd;
+            margin-top: 10px;
+        }
+
+        .wish {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+<div class="box">
+    <div id="inputBox">
+        <h2>Enter Your Name 🎂</h2>
+        <input type="text" id="nameInput" placeholder="Enter Your Nickname ">
+        <br>
+        <button onclick="checkName()">Submit</button>
+        <div class="error" id="errorMsg"></div>
+    </div>
+
+    <div class="wish" id="wishBox">
+        <h2>🎉 Happy Birthday 🎉</h2>
+        <h1 id="showName"></h1>
+        <p>May your life be full of happiness, love and success 💖✨</p>
+    </div>
+</div>
+
+<script>
+    const allowedName = "Gullu"; // 👈 CHANGE NAME HERE
+
+    function checkName() {
+        const inputName = document.getElementById("nameInput").value.trim();
+        const errorMsg = document.getElementById("errorMsg");
+
+        if (inputName === allowedName) {
+            document.getElementById("inputBox").style.display = "none";
+            document.getElementById("wishBox").style.display = "block";
+            document.getElementById("showName").innerText = inputName;
+        } else {
+            errorMsg.innerText = "❌ Are Ye Nhi Yaar Jo Mai Aapko Pyar se Bulata Hu .";
+        }
+    }
+</script>
+
+</body>
+</html>
